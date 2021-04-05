@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { Button } from "@material-ui/core";
 
 function GetPokemonList() {
   const [error, setError] = useState(null);
@@ -44,10 +45,14 @@ function PokemonList() {
   return (
     <div className="container">
       {Object.values(listOfPokemons).map((pokemon) => (
-        <div className="pokemonContainer" key={pokemon.id}>
+        <Button
+          className="pokemonContainer"
+          key={pokemon.id}
+          variant="contained"
+        >
           {pokemon.name}
           <img src={pokemon.sprite}></img>
-        </div>
+        </Button>
       ))}
     </div>
   );
