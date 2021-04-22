@@ -1,5 +1,5 @@
-import "./App.css";
-import React, { useState, useEffect } from "react";
+import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function GetPokemonList() {
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ function GetPokemonList() {
   // this useEffect will run once
   // similar to componentDidMount()
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
       .then((res) => res.json())
       .then(
         (result) => {
@@ -23,15 +23,15 @@ function GetPokemonList() {
         (error) => {
           setIsLoaded(true);
           setError(error);
-        }
+        },
       );
   }, []);
   return pokemons;
 }
 
 function PokemonList() {
-  let pokemons = GetPokemonList();
-  let listOfPokemons = {};
+  const pokemons = GetPokemonList();
+  const listOfPokemons = {};
   let counter = 1;
   pokemons.forEach((pokemon) => {
     listOfPokemons[pokemon.name] = {
@@ -46,7 +46,7 @@ function PokemonList() {
       {Object.values(listOfPokemons).map((pokemon) => (
         <div className="pokemonContainer" key={pokemon.id}>
           {pokemon.name}
-          <img src={pokemon.sprite}></img>
+          <img src={pokemon.sprite} />
         </div>
       ))}
     </div>
